@@ -272,7 +272,7 @@ void CSpeedrunDemoRecord::LevelShutdown(void) // !!!!this can get called multipl
 				//totalTicks += clientEngine->GetDemoRecordingTick();
 				char command[256] = {};
 				V_snprintf(command, 256, "stop");
-				clientEngine->ExecuteClientCmd(command);
+				clientEngine->ClientCmd(command);
 			}
 		}
 	}
@@ -365,7 +365,7 @@ PLUGIN_RESULT CSpeedrunDemoRecord::ClientConnect(bool *bAllowConnect, edict_t *p
 
 				}
 				V_snprintf(command, 256, "record %s%s\n", sessionDir, currentDemoName);
-				clientEngine->ExecuteClientCmd(command);
+				clientEngine->ClientCmd(command);
 			}
 
 		}
@@ -558,7 +558,7 @@ CON_COMMAND(speedrun_start, "starts run")
 				//Load save else...
 				ConColorMsg(Color(0, 255, 0, 255), "[Speedrun] Loading from save...\n");
 				V_snprintf(command, 256, "load %s.sav\n", speedrun_save.GetString());
-				clientEngine->ExecuteClientCmd(command);
+				clientEngine->ClientCmd(command);
 			}
 			else
 			{
@@ -682,7 +682,7 @@ CON_COMMAND(speedrun_stop, "stops run")
 		{
 			char command[256] = {};
 			V_snprintf(command, 256, "stop");
-			clientEngine->ExecuteClientCmd(command);
+			clientEngine->ClientCmd(command);
 		}
 
 		if (recordMode == 0)
