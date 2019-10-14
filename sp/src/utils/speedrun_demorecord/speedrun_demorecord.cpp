@@ -685,7 +685,7 @@ CON_COMMAND(speedrun_stop, "stops run")
 			clientEngine->ExecuteClientCmd(command);
 		}
 
-		if (recordMode = 0)
+		if (recordMode == 0)
 		{
 			//Path to default directory
 			char path[256] = {};
